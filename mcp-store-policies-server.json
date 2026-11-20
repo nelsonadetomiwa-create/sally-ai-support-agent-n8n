@@ -1,0 +1,82 @@
+{
+  "name": "Modupeola Ventures MCP Server",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "YOUR-MCP-PATH"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "55f1c638-4a38-41a2-ad38-d467a606529a",
+      "name": "MCP Server Trigger",
+      "webhookId": "YOUR-MCP-PATH"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Returns Modupeola Ventures store policies including opening hours, location, delivery terms, payment methods, and return policies.\n",
+        "authentication": "serviceAccount",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "MODUPEOLA VENTURES STOCK SHEET",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1550790516,
+          "mode": "list",
+          "cachedResultName": "Store_Policies",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=1550790516"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        96,
+        208
+      ],
+      "id": "5673894c-cad8-4387-ba2f-e0480f98c245",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleApi": {
+          "id": "alwk4RTB78ngQhRt",
+          "name": "Google Service Account account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "698f5239-2293-4cf4-b249-86f94e08959f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "YOUR_N8N_INSTANCE_ID"
+  },
+  "nodeGroups": [],
+  "id": "VwXrbMLOJfppuPcL",
+  "tags": []
+}
